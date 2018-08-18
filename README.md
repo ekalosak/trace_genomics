@@ -12,6 +12,12 @@ these observations are significant.
 ### Model quality
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/explanatory_quality_dt.png)
 
+The complexity parameter appears to stabilize after 5 factors are included. With
+more compute power, a deeper fit may provide a more extensive list of
+potentially important species.
+
+### Exracting factors from the model
+
 After fitting a decision tree to the yield-linked OTU abundances, the driving
 factor rankings are:
 1. Field Health
@@ -29,6 +35,14 @@ observed field quality is itself driven by particular microbial compositions
 requires further research. Additional analysis is required to determine the
 directions and significance of the effects on yield attributable to each of
 the subsequent factors, each of which is a microbial species.
+
+### Future model improvements
+1. Fit deep FF fully-connected autoencoder and extract niches/features from deep
+   nodes
+2. Fit deeper decision tree
+3. Fit random forest
+4. Perform statistical tests on features extracted from machine learning models
+5. Test model overfit via holdout sets
 
 ## Literature on potential driving species
 
