@@ -13,6 +13,7 @@ After fitting a decision tree to the yield-linked OTU abundances, the driving
 factor rankings are:
 1. Field Health
 2. Allochromatium vinosum
+...1. Test
 3. Amycolatopsis saalfeldensis
 4. Bacillus litoralis
 5. Curtobacterium
