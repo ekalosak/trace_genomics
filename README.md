@@ -9,7 +9,11 @@ has an immediate effect on the lettuce yield. Crop type does not appear to have
 an effect. Further statistical testing is required to determine whether indeed
 these observations are significant.
 
-### Model quality
+### Model and model quality
+After fitting a regression tree with 10 factors to the data, the model quality
+can be partially determined from the following plot depicting the error of the
+model as a function of the number of parameters.
+
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/explanatory_quality_dt.png)
 
 The complexity parameter appears to stabilize after 5 factors are included. With
