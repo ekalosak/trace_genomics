@@ -66,12 +66,32 @@ plotcp(m)
 dev.off()
 
 df$pred_yield = predict(m, df)
-p2 = ggplot(df, aes(Yield, pred_yield)) +
+p2 = ggplot(df, aes(y=Yield, x=pred_yield)) +
     geom_point() +
-    labs(title="Model performance", x="Actual yield", y="Predicted yield")
+    labs(title="Model performance", y="Actual yield", x="Predicted yield")
 ggsave("prediction_accuracy.png", p2)
 
 # TODO: check to see that sparsity of explanatory variables is enforced in rpart
+
+# TODO: fit cv-lambda lasso
+# https://stats.stackexchange.com/questions/156098/cross-validating-lasso-regression-in-r
+library(glmnet)
+X = model.matrix(~.-1, data=df[,-2])
+Y = df$Yield
+m2 = cv.glmnet(x=X, y=Y, family='gaussian')
+png("lasso_quality.png")
+plot(m2)
+dev.off()
+# min(m2$cvm) gives minimum MSE
+
+df$lasso_yield = predict(m2, s=m2$lambda.1se, X, type="response")
+
+ggplot(df, aes(x=Yield, y=lasso_yield)) +
+    geom_point() +
+    labs(title="LASSO prediction accuracy",
+         x="Actual yield", y="Predicted yield")
+
+ggsave("lasso_pred.png")
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:
