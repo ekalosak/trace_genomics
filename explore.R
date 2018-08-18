@@ -48,22 +48,28 @@ f = Yield ~ .
 ## TODO: create explanatory model
 library(rpart)
 
-expl_m = rpart(
+m = rpart(
                formula = f,
                data = df,
                method = "anova"
                )
 
-# printcp(expl_m) gives following ranking of factors:
+# printcp(m) gives following ranking of factors:
 # Field_Health, Allochromatium vinosum, Amycolatopsis saalfeldensis,
 #   Bacillus litoralis, Curtobacterium, Halomonas ilicicola, etc.
 
 # TODO: clean text in following plot to species name
-# plot(expl_m); text(expl_m, srt=90) # messy text
+# plot(m); text(m, srt=90) # messy text
 
 png("explanatory_quality_dt.png")
-plotcp(expl_m)
+plotcp(m)
 dev.off()
+
+df$pred_yield = predict(m, df)
+p2 = ggplot(df, aes(Yield, pred_yield)) +
+    geom_point() +
+    labs(title="Model performance", x="Actual yield", y="Predicted yield")
+ggsave("prediction_accuracy.png", p2)
 
 # TODO: check to see that sparsity of explanatory variables is enforced in rpart
 

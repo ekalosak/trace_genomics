@@ -50,10 +50,12 @@ the subsequent factors, each of which is a microbial species.
 1. [phototropic sulfur bacterium, oxidizer](https://doi.org/10.1111/j.1365-2958.2006.05408.x)
 
 ### Pseudomonas oryzae
-1. 
+1. [slime producing pathogen](http://dx.doi.org/10.20546/ijcmas.2017.603.117)
 
 ## Yield prediction model
 As an attempt at the holy grail of modern precision agronomics, I've build a
-yield prediction model using a random forest.
+yield prediction model using a regression tree with an ANOVA split criterion.
+The model is regretably simple, but it appears to perform moderately well, even
+with a small number of features (10).
 
-## 
+![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/prediction_accuracy.png)
