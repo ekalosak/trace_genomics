@@ -61,6 +61,10 @@ expl_m = rpart(
 # TODO: clean text in following plot to species name
 # plot(expl_m); text(expl_m, srt=90) # messy text
 
+png("explanatory_quality_dt.png")
+plotcp(expl_m)
+dev.off()
+
 # TODO: check to see that sparsity of explanatory variables is enforced in rpart
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
