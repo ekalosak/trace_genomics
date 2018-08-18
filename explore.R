@@ -104,7 +104,7 @@ ggsave("lasso_pred.png")
 
 a = coef(m2, s=10)
 cnd = cn[-dcol]
-cnd[which(a !=0)]
+potential_interest = sort(cnd[which(a !=0)])
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:
