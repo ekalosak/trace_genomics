@@ -8,7 +8,20 @@ library(ggplot2)
 ## Source local libraries
 source("load_data.R")
 
-## TODO: Plot in a few ways to see what's going on
+## Plot in a few ways to see what's going on
+
+# http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization
+p1 = ggplot(mdf, aes(x=Field_Health, y=Yield, fill=Current_Crop)) +
+    geom_bar(stat = "identity") +
+    labs(title="Yeild as a function of field health and crop",
+         x="Field health", y="Yield")
+ggsave("exploratory_p1.png", p1)
+
+# NOTE: by p1, appears that there is a field-health effect. subtract that and
+    # normalize yield by within-group variances
+
+fh = mdf$yield[mdf$Field_Health == "Healthy"]
+# mdf$yield[mdf$Field_Health == "Healthy"] = 
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:

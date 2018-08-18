@@ -97,3 +97,16 @@ mdf = droplevels(
 #         Healthy=c("healthy", "e healthy", "w healthy"),
 #         NotHealthy=c("not healthy", "e not healthy", "w not healthy")
 #         )
+
+levels(mdf$current_crop) = list(
+                                Romaine=c("lettuce_romaine"),
+                                Iceberg=c("lettuce_iceburg")
+                                )
+
+levels(mdf$field_health) = list(
+                                Healthy=c("healthy"),
+                                Not_Healthy=c("not")
+                                )
+
+colnames(mdf) = c("sample_id", "Sampling_Date", "Current_Crop", "Yield",
+                  "Field_Health", "Field_Label")
