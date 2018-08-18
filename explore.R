@@ -18,10 +18,13 @@ p1 = ggplot(mdf, aes(x=Field_Health, y=Yield, fill=Current_Crop)) +
 ggsave("exploratory_p1.png", p1)
 
 # NOTE: by p1, appears that there is a field-health effect. subtract that and
-    # normalize yield by within-group variances
+    # normalize yield by within-group variances i.e. control for field health
+    # NOTE: might be good to see whether microbes drive "Field_Health"
 
-fh = mdf$yield[mdf$Field_Health == "Healthy"]
-# mdf$yield[mdf$Field_Health == "Healthy"] = 
+fh = mdf$Yield[mdf$Field_Health == "Healthy"]
+fn = mdf$Yield[mdf$Field_Health == "Not_Healthy"]
+mdf$Norm_Yield[mdf$Field_Health == "Healthy"] = (fh - mean(fh))/sd(fh)
+mdf$Norm_Yield[mdf$Field_Health == "Not_Healthy"] = (fn - mean(fn))/sd(fn)
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:
@@ -68,3 +71,5 @@ fh = mdf$yield[mdf$Field_Health == "Healthy"]
 # library(lmer)
 
 # TODO: determine any representative microbiome profiles
+# TODO: determine whether there are any highly correlated microbes to field
+# health
