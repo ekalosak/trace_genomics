@@ -66,9 +66,16 @@ with a small number (10) of features.
 
 ## The LASSO alternative
 Fitting a full, one-way linear model using cross-validation to tune the penalty
-parameter (~35 after CV) yields the following quality plot:
+parameter (using l=10 after CV) yields the following quality plot:
 
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/lasso_quality.png)
 
-And the prediction accuracy looks similar to the regression tree's:
+The prediction accuracy looks poor, but can be improved by tuning.
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/lasso_pred.png)
+
+The microbes with non-zero coefficients are:
+1. Actinobacteria
+2. Belnapia
+3. Nitrosospira
+4. Agrobacterium tumefaciens
+5. Amauroascus niger
