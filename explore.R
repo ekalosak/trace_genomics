@@ -41,7 +41,27 @@ rownames(df) = df$sample_id
 df = df[,-c(1,2)] # drop sample_id and Sampling_Date
 df = df[]
 
+## Create predictive model
+library(randomForest)
 f = Yield ~ .
+
+## TODO: create explanatory model
+library(rpart)
+
+expl_m = rpart(
+               formula = f,
+               data = df,
+               method = "anova"
+               )
+
+# printcp(expl_m) gives following ranking of factors:
+# Field_Health, Allochromatium vinosum, Amycolatopsis saalfeldensis,
+#   Bacillus litoralis, Curtobacterium, Halomonas ilicicola, etc.
+
+# TODO: clean text in following plot to species name
+# plot(expl_m); text(expl_m, srt=90) # messy text
+
+# TODO: check to see that sparsity of explanatory variables is enforced in rpart
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:
@@ -84,7 +104,6 @@ f = Yield ~ .
 #   Lasso, neuralnet, randomforest, mars
 
 # library(neuralnet)
-# library(randomForest)
 # library(lmer)
 
 # TODO: determine any representative microbiome profiles
