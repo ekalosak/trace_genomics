@@ -10,7 +10,7 @@ an effect. Further statistical testing is required to determine whether indeed
 these observations are significant.
 
 ### Model quality
-![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/exploratory_p1.png)
+![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/explanatory_quality_dt.png")
 
 After fitting a decision tree to the yield-linked OTU abundances, the driving
 factor rankings are:
