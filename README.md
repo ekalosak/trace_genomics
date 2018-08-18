@@ -47,7 +47,7 @@ the subsequent factors, each of which is a microbial species.
 ## Literature on potential driving species
 
 ### Allochromatium vinosum
-1. [phototrophic sulfur bacterium](https://jb.asm.org/content/187/4/1392.short)
+1. [phototropic sulfur bacterium, oxidizer](https://doi.org/10.1111/j.1365-2958.2006.05408.x)
 
 ### Pseudomonas oryzae
 1. 
