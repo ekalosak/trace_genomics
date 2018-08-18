@@ -1,5 +1,5 @@
 # trace_genomics
-Beginnings of an analysis of which microbes hurt crop health
+Using yield and microbial abundance data, I explore what drives lettuce yield.
 
 ## Factors leading to variation
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/exploratory_p1.png)
@@ -33,14 +33,14 @@ factor rankings are:
 As expected, the quality of the field is the main driver of yield. Whether the
 observed field quality is itself driven by particular microbial compositions
 requires further research. Additional analysis is required to determine the
-directions and significance of the effects on yield attributable to each of
-the subsequent factors, each of which is a microbial species.
+directions of and significance of the subsequent microbial species effects on
+yield.
 
 ### Future model improvements
-1. Fit deep FF fully-connected autoencoder and extract niches/features from deep
-   nodes
+1. Fit deep FF fully-connected autoencoder and extract niches/features from
+   encoding nodes
 2. Fit deeper decision tree
-3. Fit random forest
+3. Fit random forest for higher predictive accuracy and lower variance
 4. Perform statistical tests on features extracted from machine learning models
 5. Test model overfit via holdout sets
 
@@ -56,6 +56,6 @@ the subsequent factors, each of which is a microbial species.
 As an attempt at the holy grail of modern precision agronomics, I've build a
 yield prediction model using a regression tree with an ANOVA split criterion.
 The model is regretably simple, but it appears to perform moderately well, even
-with a small number of features (10).
+with a small number (10) of features.
 
 ![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/prediction_accuracy.png)
