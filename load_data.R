@@ -10,7 +10,7 @@ ohfn = "data_challenge-otu_hits.csv"
 
 ## Load data
 mddf = read.csv(mdfn)
-# odf = read.csv(ohfn)
+odf = read.csv(ohfn)
 
 # dim(mddf) = 160 11, 160 samples by 11 variables
 # dim(odf) = 8154 161, 8154 OTU by 1 Taxon. ID and 160 samples

@@ -21,10 +21,27 @@ ggsave("exploratory_p1.png", p1)
     # normalize yield by within-group variances i.e. control for field health
     # NOTE: might be good to see whether microbes drive "Field_Health"
 
-fh = mdf$Yield[mdf$Field_Health == "Healthy"]
-fn = mdf$Yield[mdf$Field_Health == "Not_Healthy"]
-mdf$Norm_Yield[mdf$Field_Health == "Healthy"] = (fh - mean(fh))/sd(fh)
-mdf$Norm_Yield[mdf$Field_Health == "Not_Healthy"] = (fn - mean(fn))/sd(fn)
+# fh = mdf$Yield[mdf$Field_Health == "Healthy"]
+# fn = mdf$Yield[mdf$Field_Health == "Not_Healthy"]
+# mdf$Norm_Yield[mdf$Field_Health == "Healthy"] = (fh - mean(fh))/sd(fh)
+# mdf$Norm_Yield[mdf$Field_Health == "Not_Healthy"] = (fn - mean(fn))/sd(fn)
+
+## Prepare OTU data for join with normalized yield
+library(data.table)
+rownames(odf) = odf[,1]
+odf = odf[,-1]
+todf = transpose(odf)
+colnames(todf) = rownames(odf)
+rownames(todf) = colnames(odf)
+todf$sample_id = rownames(todf)
+
+## Create main dataframe
+df = merge(x = mdf, y = todf, by = "sample_id")
+rownames(df) = df$sample_id
+df = df[,-c(1,2)] # drop sample_id and Sampling_Date
+df = df[]
+
+f = Yield ~ .
 
 # TODO: See if there are any obvious culprits (e.g. Fusarium)
 # from https://en.wikipedia.org/wiki/List_of_lettuce_diseases:
