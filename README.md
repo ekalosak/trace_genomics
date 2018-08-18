@@ -9,11 +9,13 @@ has an immediate effect on the lettuce yield. Crop type does not appear to have
 an effect. Further statistical testing is required to determine whether indeed
 these observations are significant.
 
+### Model quality
+![Image](https://raw.githubusercontent.com/ekalosak/trace_genomics/master/exploratory_p1.png)
+
 After fitting a decision tree to the yield-linked OTU abundances, the driving
 factor rankings are:
 1. Field Health
 2. Allochromatium vinosum
-..1. Test
 3. Amycolatopsis saalfeldensis
 4. Bacillus litoralis
 5. Curtobacterium
@@ -28,6 +30,16 @@ requires further research. Additional analysis is required to determine the
 directions and significance of the effects on yield attributable to each of
 the subsequent factors, each of which is a microbial species.
 
+## Literature on potential driving species
+
+### Allochromatium vinosum
+1. [phototrophic sulfur bacterium](https://jb.asm.org/content/187/4/1392.short)
+
+### Pseudomonas oryzae
+1. 
+
 ## Yield prediction model
 As an attempt at the holy grail of modern precision agronomics, I've build a
 yield prediction model using a random forest.
+
+## 
